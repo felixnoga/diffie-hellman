@@ -50,7 +50,7 @@ int main(){
     Los números dados para la operación modular son la raíz primitiva g=14
     y el módulo número primo 2^31-1. Declaramos también el resto de variables utilizadas.
     */
-    int numero, z, w, resejem, k;  
+    int  z, w,  k;  
     int g = 14; //base de la exponenciación (raiz primitiva)
     int p = pow(2,31)-1;  //módulo p dado     
     srand(time(0)); //Inicializamos con una semilla la función para generar número aleatorio (la semilla es la hora actual)
@@ -80,7 +80,10 @@ int main(){
     printf("\n");
     printf("Introduce el numero que te ha enviado la otra parte:  \n");
     
-    scanf("%d", &w);
+    if(scanf("%d", &w) != 1) {
+        printf("Error al introducir el numero. Formato incorrecto.");
+        exit(1);
+    }
  
     k = mod_exp(w, x , p);
     printf("La clave compartida \"K\" es: \n");
